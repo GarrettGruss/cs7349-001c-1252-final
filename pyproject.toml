@@ -1,0 +1,19 @@
+[project]
+name = "cs7349_001c_1252_final"
+version = "0.1.0"
+description = "Final project"
+authors = [
+    {name = "GarrettGruss",email = "168872721+GarrettGruss@users.noreply.github.com"}
+]
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "pytest (>=8.3.5,<9.0.0)",
+    "logger (>=1.4,<2.0)",
+    "coloredlogs (>=15.0.1,<16.0.0)",
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
