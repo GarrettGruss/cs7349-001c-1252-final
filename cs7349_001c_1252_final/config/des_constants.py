@@ -1,4 +1,4 @@
-# config.des_constants
+# cs7349_001c_1252_final.config.des_constants.py
 # Garrett Gruss 4/27/2025
 
 INITIAL_PERMUTATION = [
@@ -34,7 +34,6 @@ EXPANSION_PERMUTATION = [
     28, 29, 30, 31, 32, 1
 ]
 
-# P-Permutation (P)
 P_PERMUTATION = [
     16, 7, 20, 21,
     29, 12, 28, 17,
@@ -46,7 +45,6 @@ P_PERMUTATION = [
     22, 11, 4, 25
 ]
 
-# Permuted Choice 1 (PC-1)
 PERMUTATION_CHOICE_1 = [
     57, 49, 41, 33, 25, 17, 9,
     1, 58, 50, 42, 34, 26, 18,
@@ -58,7 +56,6 @@ PERMUTATION_CHOICE_1 = [
     21, 13, 5, 28, 20, 12, 4
 ]
 
-# Permuted Choice 2 (PC-2)
 PERMUTATION_CHOICE_2 = [
     14, 17, 11, 24, 1, 5,
     3, 28, 15, 6, 21, 10,
@@ -70,7 +67,6 @@ PERMUTATION_CHOICE_2 = [
     46, 42, 50, 36, 29, 32
 ]
 
-# S-boxes (S1 through S8)
 S_BOXES = [
     # S1
     [

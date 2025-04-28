@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>README.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="cs7349-001c-1252-final">cs7349-001c-1252-final</h1>
+<p><strong>Garrett Gruss</strong> | <strong>4/27/2025</strong></p>
+<h2 id="installation">Installation</h2>
+<ol>
+<li>
+<p><strong>Clone the repo</strong></p>
+<pre class="hljs"><code><div>git <span class="hljs-built_in">clone</span> https://github.com/GarrettGruss/cs7349-001c-1252-final.git
+<span class="hljs-built_in">cd</span> cs7349-001c-1252-final
+</div></code></pre>
+</li>
+<li>
+<p><strong>Create venv with poetry</strong></p>
+<pre class="hljs"><code><div>poetry config virtualenvs.in-project <span class="hljs-literal">true</span>
+</div></code></pre>
+</li>
+<li>
+<p><strong>Install dependencies</strong></p>
+<pre class="hljs"><code><div>poetry install
+</div></code></pre>
+</li>
+<li>
+<p><strong>Activate the venv</strong></p>
+<ul>
+<li><strong>Unix / macOS</strong><pre class="hljs"><code><div><span class="hljs-built_in">source</span> .venv/bin/activate
+</div></code></pre>
+</li>
+<li><strong>Windows (PowerShell)</strong><pre class="hljs"><code><div><span class="hljs-built_in">Set-ExecutionPolicy</span> <span class="hljs-literal">-Scope</span> <span class="hljs-keyword">Process</span> <span class="hljs-literal">-ExecutionPolicy</span> Bypass
+.\.venv\Scripts\Activate.ps1
+</div></code></pre>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="demos">Demos</h2>
+<h3 id="des-demo">DES demo</h3>
+<pre class="hljs"><code><div>poetry run python -m cs7349_001c_1252_final.scripts.des_cipher
+</div></code></pre>
+<h3 id="rsa-demo">RSA demo</h3>
+<pre class="hljs"><code><div>poetry run python -m cs7349_001c_1252_final.scripts.rsa_cipher
+</div></code></pre>
+<h2 id="tests">tests</h2>
+<pre class="hljs"><code><div>poetry run pytest
+</div></code></pre>
+<p>To run tests in verbose mode (shows more detailed log messages).</p>
+<pre class="hljs"><code><div>poetry run pytest -v --<span class="hljs-built_in">log</span>-cli-level=DEBUG
+</div></code></pre>
+<hr>
+<hr>
+<h1 id="project-report">Project Report</h1>
+<p><strong>Assignment:</strong>
+You are required to write a project report by solving the above problems. Describe your design clearly and your observations. Submit a copy of your code. Your grade will be based on the clarity and thoroughness of your report.</p>
+<h2 id="problem-1-modern-symmetric-cipher--decipher-implementation">Problem 1. Modern Symmetric Cipher &amp; Decipher Implementation</h2>
+<p><strong>Assignment:</strong>
+Program to implement the DES or AES algorithm. You can choose either one based on your interest and use any programming language you like, such as C, C++, Java, and python. Directly using des or aes libraries receives 0 for this problem. Your program does not need to encode a plaintext exactly the same as the existing library function. But you need to specify in your report how you implement each component of the cipher/decipher in both
+text and code segments. And how many rounds? You can refer to the DES or AES algorithm designs in the lecture notes or some similar designs. Show that your encryption and decryption function work using example plaintexts.</p>
+<h3 id="11-overview--components">1.1 Overview &amp; Components</h3>
+<p>This script implements the DES cipher over 16 feistel rounds.</p>
+<ol>
+<li>
+<p><strong>cs7349_001c_1252_final.scripts.des_cipher.py</strong>
+Contains the core functionality of the cipher</p>
+<ul>
+<li><strong><code>bytes_to_bit_array</code></strong>
+Converts a byte into 8 bits (big-endian).</li>
+<li><strong><code>bit_array_to_bytes</code></strong>
+Packs a bit list into bytes.</li>
+<li><strong><code>permute</code></strong>
+Applies a permutation table.</li>
+<li><strong><code>left_shift</code></strong>
+Performs a circular left shift by <em>n</em> bits.</li>
+<li><strong><code>xor</code></strong>
+Performs a bitwise XOR of two bit-vectors.</li>
+<li><strong><code>generate_subkeys</code></strong>
+Produces sixteen 48-bit round keys.</li>
+<li><strong><code>sbox_substitution</code></strong>
+Splits the 48-bit input into eight 6-bit blocks, looks up each in its S-box, and concatenates the eight 4-bit outputs.</li>
+<li><strong><code>feistel</code></strong>
+Performs E-Box expansions, XOR, S-Box substitution, and P-permutation.</li>
+<li><strong><code>process_block</code></strong>
+Performs initial permutation, 16 rounds of Feistal, and final permutation</li>
+<li><strong><code>pad</code></strong>
+Pads data.</li>
+<li><strong><code>des_encrypt</code></strong>
+Performs the overall DES encryption process.</li>
+<li><strong><code>des_decrypt</code></strong>
+Performs the overall DES decryption process.</li>
+</ul>
+</li>
+<li>
+<p><strong>cs7349_001c_1252_final.config.des_constants.py</strong></p>
+<ul>
+<li>Contains the DES tables</li>
+<li><code>INITIAL_PERMUTATION</code></li>
+<li><code>FINAL_PERMUTATION</code></li>
+<li><code>EXPANSION_PERMUTATION</code></li>
+<li><code>P_PERMUTATION</code></li>
+<li><code>PERMUTATION_CHOICE_1</code></li>
+<li><code>PERMUTATION_CHOICE_2</code></li>
+<li><code>S_BOXES</code></li>
+<li><code>SHIFT_SCHEDULE</code></li>
+</ul>
+</li>
+</ol>
+<h3 id="12-overall-flow">1.2 Overall Flow</h3>
+<p>The DES encryption algorithm pads the UTF-8 plaintext to the nearest 8-byte multiple with PKCS#5, then processes each 64-bit block using an initial permutation, sixteen rounds of the Feistel function, and finishes with a final permutation.</p>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">des_encrypt</span><span class="hljs-params">(plaintext: str, key: bytes)</span> -&gt; str:</span>
+    <span class="hljs-keyword">if</span> len(key) != <span class="hljs-number">8</span>:
+        <span class="hljs-keyword">raise</span> ValueError(<span class="hljs-string">"Key must be 8 bytes long."</span>)
+    data = pad(plaintext.encode(<span class="hljs-string">'utf-8'</span>))
+    subkeys = generate_subkeys(key)
+    encrypted = <span class="hljs-string">b''</span>
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>, len(data), <span class="hljs-number">8</span>):
+        encrypted += process_block(data[i:i+<span class="hljs-number">8</span>], subkeys, encrypt=<span class="hljs-literal">True</span>)
+    <span class="hljs-keyword">return</span> encrypted.hex()
+</div></code></pre>
+<p>The eight-byte is transformed to a 64-bit list. Each round then uses the Feistel function and exchanges the halves. This process is performed for 16 rounds, and the final output halves are then exchanged, and a final permutation is performed.</p>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">process_block</span><span class="hljs-params">(block: bytes, subkeys: List[List[int]], encrypt: bool = True)</span> -&gt; bytes:</span>
+    bits = bytes_to_bit_array(block)
+    permuted = permute(bits, INITIAL_PERMUTATION)
+    logger.debug(<span class="hljs-string">f"Initial Permutation applied: <span class="hljs-subst">{bit_array_to_bytes(permuted).hex()}</span>"</span>)
+
+    left, right = permuted[:<span class="hljs-number">32</span>], permuted[<span class="hljs-number">32</span>:]
+    keys = subkeys <span class="hljs-keyword">if</span> encrypt <span class="hljs-keyword">else</span> list(reversed(subkeys))
+
+    <span class="hljs-keyword">for</span> i, key <span class="hljs-keyword">in</span> enumerate(keys, start=<span class="hljs-number">1</span>):
+        temp = right.copy()
+        f_out = feistel(right, key)
+        right = xor(left, f_out)
+        left = temp
+        logger.debug(<span class="hljs-string">f"Round <span class="hljs-subst">{i:<span class="hljs-number">2</span>d}</span> L=<span class="hljs-subst">{bit_array_to_bytes(left).hex()}</span> R=<span class="hljs-subst">{bit_array_to_bytes(right).hex()}</span>"</span>)
+
+    combined = right + left  <span class="hljs-comment"># swap halves</span>
+    final_bits = permute(combined, FINAL_PERMUTATION)
+    output = bit_array_to_bytes(final_bits)
+    logger.debug(<span class="hljs-string">f"Final Permutation applied: <span class="hljs-subst">{output.hex()}</span>"</span>)
+    <span class="hljs-keyword">return</span> output
+</div></code></pre>
+<p>Decryption is similar, relying on the same logic but with the subkeys passed in reverse order.</p>
+<h2 id="13-feistel-function">1.3 Feistel Function</h2>
+<p>Each Feistel round applies a non-linear mixing of the 32-bit right half with a 48-bit subkey. The feistel function performs:</p>
+<p>Each Feistel round uses a non-linear mixing of the 32-bit R side with a 48-bit subkey:</p>
+<ol>
+<li>32-bit to 48-bit expansion permutation (E-box) by duplicating and reordering according to the standard DES expansion table.</li>
+<li>XOR the expanded bits with the related bit from round subkey.</li>
+<li>S-box Substitution by splitting the The 48-bit result into eight 6-bit blocks; for block i, the first and last bits form a row index and the middle four form a column index into S_BOXES, yielding a 4-bit value each. The eight 4-bit outputs are concatenated to 32 bits.
+S-box Substitution by splitting the 48-bit Result into 8 6-bit blocks.</li>
+<li>P-Permutation by permutation over 32-bit string to generate diffusion.</li>
+</ol>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">feistel</span><span class="hljs-params">(right: List[int], subkey: List[int])</span> -&gt; List[int]:</span>
+    expanded = permute(right, EXPANSION_PERMUTATION)
+    logger.debug(<span class="hljs-string">f"Expanded R: <span class="hljs-subst">{bit_array_to_bytes(expanded).hex()}</span>"</span>)
+    xored = xor(expanded, subkey)
+    logger.debug(<span class="hljs-string">f"After XOR:   <span class="hljs-subst">{bit_array_to_bytes(xored).hex()}</span>"</span>)
+    substituted = sbox_substitution(xored)
+    logger.debug(<span class="hljs-string">f"After S-box: <span class="hljs-subst">{bit_array_to_bytes(substituted).hex()}</span>"</span>)
+    <span class="hljs-keyword">return</span> permute(substituted, P_PERMUTATION)
+</div></code></pre>
+<h2 id="14-key-schedule">1.4 Key Schedule</h2>
+<p>The key schedule generates the sixteen 48-bit round keys that are utilized during the feistal functions. To generate the subkeys, the user key is permuted into a 64-bit array using the Permucation Choice 1. For the sixteen rounds, the halves are exchanged by the SHIFT_SCHEDULE[i-1] and a permutation of Permutation Choice 2.</p>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">generate_subkeys</span><span class="hljs-params">(key_bytes: bytes)</span> -&gt; List[List[int]]:</span>
+    key_bits = bytes_to_bit_array(key_bytes)
+    permuted = permute(key_bits, PERMUTATION_CHOICE_1)
+    C, D = permuted[:<span class="hljs-number">28</span>], permuted[<span class="hljs-number">28</span>:]
+    subkeys: List[List[int]] = []
+    <span class="hljs-keyword">for</span> i, shift <span class="hljs-keyword">in</span> enumerate(SHIFT_SCHEDULE):
+        C = left_shift(C, shift)
+        D = left_shift(D, shift)
+        combined = C + D
+        subkey = permute(combined, PERMUTATION_CHOICE_2)
+        logger.debug(<span class="hljs-string">f"Subkey <span class="hljs-subst">{i+<span class="hljs-number">1</span>:<span class="hljs-number">2</span>d}</span>: <span class="hljs-subst">{bit_array_to_bytes(subkey).hex()}</span>"</span>)
+        subkeys.append(subkey)
+    <span class="hljs-keyword">return</span> subkeys
+</div></code></pre>
+<h2 id="15-code-example">1.5 Code Example</h2>
+<p>The following main entry point can be used to verify the DES cipher. A key of <code>secr3t_k</code> and plain text of <code>Hello, DES!</code> is used. The log output shows the subkey generation, initial permutation, 16 rounds of Feistal (two log streams for each half), and the final permutation. The ciphertext is displayed, and the process repeated to decrypt the text. The log output details the internal logic being performed by the script.</p>
+<pre class="hljs"><code><div>
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">"__main__"</span>:
+    setup_logging()
+    key = <span class="hljs-string">b"secr3t_k"</span>
+    sample = <span class="hljs-string">"Hello, DES!"</span>
+    cipher = des_encrypt(sample, key)
+    logger.info(<span class="hljs-string">f"Encrypted: <span class="hljs-subst">{cipher}</span>"</span>)
+    plain = des_decrypt(cipher, key)
+    logger.info(<span class="hljs-string">f"Decrypted: <span class="hljs-subst">{plain}</span>"</span>)
+</div></code></pre>
+<h3 id="log-output">Log Output</h3>
+<pre class="hljs"><code><div>2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:58 DEBUG: Subkey  1: 80beee746913
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:58 DEBUG: Subkey  2: f0a6d6b68985
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:58 DEBUG: Subkey  3: 74de36c207d3
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:58 DEBUG: Subkey  4: e6b1765fa309
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:58 DEBUG: Subkey  5: aec677725548
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:58 DEBUG: Subkey  6: ef533a48b12e
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:58 DEBUG: Subkey  7: ae93f9e47ca8
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:58 DEBUG: Subkey  8: 9f5a5b681a7b
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:58 DEBUG: Subkey  9: 3d4bdbeac530
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:58 DEBUG: Subkey 10: 37719d894f0e
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:58 DEBUG: Subkey 11: 1f0dd5dc5290
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:58 DEBUG: Subkey 12: 5f68bdd1426d
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:58 DEBUG: Subkey 13: 9fa5ac92ba88
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:58 DEBUG: Subkey 14: da0eafb03735
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:58 DEBUG: Subkey 15: f9ba2c3b2aa2
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:58 DEBUG: Subkey 16: f1bcae0263e7
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:88 DEBUG: Initial Permutation applied: 9f00be12007e3d10
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:77 DEBUG: Expanded R: 0003fc1fa8a0
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:79 DEBUG: After XOR:   80bd126bc1b3
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:81 DEBUG: After S-box: 42220bec
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:98 DEBUG: Round  1 L=007e3d10 R=c7701a37
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:77 DEBUG: Expanded R: e0eba00f41af
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:79 DEBUG: After XOR:   104d76b9c82a
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:81 DEBUG: After S-box: d8ee851c
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:98 DEBUG: Round  2 L=c7701a37 R=0bb78c7e
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:77 DEBUG: Expanded R: 057dafc583fc
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:79 DEBUG: After XOR:   71a39907842f
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:81 DEBUG: After S-box: 0051e13d
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:98 DEBUG: Round  3 L=0bb78c7e R=48753697
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:77 DEBUG: Expanded R: a503aa9ad4ae
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:79 DEBUG: After XOR:   43b2dcc577a7
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:81 DEBUG: After S-box: 35446e17
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:98 DEBUG: Round  4 L=48753697 R=1990d6c4
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:77 DEBUG: Expanded R: 0f3ca16ad608
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:79 DEBUG: After XOR:   a1fad6188340
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:81 DEBUG: After S-box: d595191d
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:98 DEBUG: Round  5 L=1990d6c4 R=f6f5cfa5
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:77 DEBUG: Expanded R: fad7abe5fd0b
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:79 DEBUG: After XOR:   158491ad4c25
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:81 DEBUG: After S-box: 7cd4e3ae
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:98 DEBUG: Round  6 L=f6f5cfa5 R=14bf6177
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:77 DEBUG: Expanded R: 8a95feb02bae
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:79 DEBUG: After XOR:   240607545706
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:81 DEBUG: After S-box: efb5f464
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:98 DEBUG: Round  7 L=14bf6177 R=13691819
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:77 DEBUG: Expanded R: 8a6b528f00f2
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:79 DEBUG: After XOR:   153109e71a89
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:81 DEBUG: After S-box: 7096ab3a
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:98 DEBUG: Round  8 L=13691819 R=0bddd6f5
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:77 DEBUG: Expanded R: 857efbead7aa
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:79 DEBUG: After XOR:   b8352000129a
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:81 DEBUG: After S-box: bdca2a00
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:98 DEBUG: Round  9 L=0bddd6f5 R=03805bcb
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:77 DEBUG: Expanded R: 807c002f7e56
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:79 DEBUG: After XOR:   b70d9da63158
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:81 DEBUG: After S-box: 15ce13b5
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:98 DEBUG: Round 10 L=03805bcb R=29bcab86
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:77 DEBUG: Expanded R: 153df9557c0c
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:79 DEBUG: After XOR:   0a302c892e9c
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:81 DEBUG: After S-box: 48a72d5c
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:98 DEBUG: Round 11 L=29bcab86 R=99d8ea67
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:77 DEBUG: Expanded R: cf3ef175430f
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:79 DEBUG: After XOR:   90564ca40162
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:81 DEBUG: After S-box: e4c91cbb
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:98 DEBUG: Round 12 L=99d8ea67 R=933f24df
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:77 DEBUG: Expanded R: ca69fe9096ff
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:79 DEBUG: After XOR:   55cc52022c77
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:81 DEBUG: After S-box: c5422e90
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:98 DEBUG: Round 13 L=933f24df R=8b392afe
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:77 DEBUG: Expanded R: 4569f29557fd
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:79 DEBUG: After XOR:   9f675d2560c8
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:81 DEBUG: After S-box: 26fe4406
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:98 DEBUG: Round 14 L=8b392afe R=d77837a3
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:77 DEBUG: Expanded R: eaebf01afd07
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:79 DEBUG: After XOR:   1351dc21d7a5
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:81 DEBUG: After S-box: d794731e
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:98 DEBUG: Round 15 L=d77837a3 R=e59fdb4c
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:77 DEBUG: Expanded R: 70bcffef6a59
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:79 DEBUG: After XOR:   810051ed09be
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:81 DEBUG: After S-box: 49d440d8
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:98 DEBUG: Round 16 L=e59fdb4c R=d965e6a2
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:103 DEBUG: Final Permutation applied: f82db66a6895deed
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:88 DEBUG: Initial Permutation applied: 0302f9ff00040002
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:77 DEBUG: Expanded R: 000008000004
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:79 DEBUG: After XOR:   80bee6746917
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:81 DEBUG: After S-box: 42508fbb
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:98 DEBUG: Round  1 L=00040002 R=5c2155f6
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:77 DEBUG: Expanded R: 2f8102aabfac
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:79 DEBUG: After XOR:   df27d41c3629
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:81 DEBUG: After S-box: e818cf54
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:98 DEBUG: Round  2 L=5c2155f6 R=17b8a26a
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:77 DEBUG: Expanded R: 0afdf1504354
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:79 DEBUG: After XOR:   7e23c7924487
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:81 DEBUG: After S-box: 8ea51fc8
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:98 DEBUG: Round  3 L=17b8a26a R=a49964eb
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:77 DEBUG: Expanded R: d094f2b09757
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:79 DEBUG: After XOR:   362584ef345e
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:81 DEBUG: After S-box: de7e4ee7
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:98 DEBUG: Round  4 L=a49964eb R=43473e15
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:77 DEBUG: Expanded R: a06a0e9fc0aa
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:79 DEBUG: After XOR:   0eac79ed95e2
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:81 DEBUG: After S-box: f44c40cb
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:98 DEBUG: Round  5 L=43473e15 R=ac0efeb8
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:77 DEBUG: Expanded R: 55805d7fd5f1
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:79 DEBUG: After XOR:   bad3673764df
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:81 DEBUG: After S-box: b466da32
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:98 DEBUG: Round  6 L=ac0efeb8 R=70a02803
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:77 DEBUG: Expanded R: ba1500150006
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:79 DEBUG: After XOR:   1486f9f17cae
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:81 DEBUG: After S-box: 76bc0ef2
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:98 DEBUG: Round  7 L=70a02803 R=fa3c69e7
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:77 DEBUG: Expanded R: ff41f8353f0f
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:79 DEBUG: After XOR:   601ba35d2574
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:81 DEBUG: After S-box: 530fad5a
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:98 DEBUG: Round  8 L=fa3c69e7 R=abf2d8c9
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:77 DEBUG: Expanded R: d57fa56f1653
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:79 DEBUG: After XOR:   e8347e85d363
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:81 DEBUG: After S-box: ad24b311
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:98 DEBUG: Round  9 L=abf2d8c9 R=d9941373
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:77 DEBUG: Expanded R: ef3ca80a6ba7
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:79 DEBUG: After XOR:   d84d358324a9
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:81 DEBUG: After S-box: 782540c4
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:98 DEBUG: Round 10 L=d9941373 R=2bee4aee
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:77 DEBUG: Expanded R: 157f5c25575c
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:79 DEBUG: After XOR:   0a7289f905cc
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:81 DEBUG: After S-box: 4136e0cb
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:98 DEBUG: Round 11 L=2bee4aee R=d4c2cbf6
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:77 DEBUG: Expanded R: 6a9605657fad
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:79 DEBUG: After XOR:   35feb8b43dc0
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:81 DEBUG: After S-box: d5a52ffd
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:98 DEBUG: Round 12 L=d4c2cbf6 R=b15eb751
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:77 DEBUG: Expanded R: da2afd5aeaa3
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:79 DEBUG: After XOR:   458f51c8502b
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:81 DEBUG: After S-box: ac24944a
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:98 DEBUG: Round 13 L=b15eb751 R=fd58d9ea
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:77 DEBUG: Expanded R: 7faaf16f3f55
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:79 DEBUG: After XOR:   a5a45edf0860
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:81 DEBUG: After S-box: 402f9767
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:98 DEBUG: Round 14 L=fd58d9ea R=102c0b3d
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:77 DEBUG: Expanded R: 8a01580569fa
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:79 DEBUG: After XOR:   73bb743e4358
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:81 DEBUG: After S-box: 05831f15
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:98 DEBUG: Round 15 L=102c0b3d R=4f38b0d2
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:77 DEBUG: Expanded R: 25e9f15a16a4
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:79 DEBUG: After XOR:   d4555f587543
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:81 DEBUG: After S-box: 3459f25f
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:98 DEBUG: Round 16 L=4f38b0d2 R=bf1b01cf
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:103 DEBUG: Final Permutation applied: d5d3c1f17a68834b
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:144 INFO: Encrypted: f82db66a6895deedd5d3c1f17a68834b
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:58 DEBUG: Subkey  1: 80beee746913
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:58 DEBUG: Subkey  2: f0a6d6b68985
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:58 DEBUG: Subkey  3: 74de36c207d3
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:58 DEBUG: Subkey  4: e6b1765fa309
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:58 DEBUG: Subkey  5: aec677725548
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:58 DEBUG: Subkey  6: ef533a48b12e
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:58 DEBUG: Subkey  7: ae93f9e47ca8
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:58 DEBUG: Subkey  8: 9f5a5b681a7b
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:58 DEBUG: Subkey  9: 3d4bdbeac530
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:58 DEBUG: Subkey 10: 37719d894f0e
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:58 DEBUG: Subkey 11: 1f0dd5dc5290
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:58 DEBUG: Subkey 12: 5f68bdd1426d
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:58 DEBUG: Subkey 13: 9fa5ac92ba88
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:58 DEBUG: Subkey 14: da0eafb03735
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:58 DEBUG: Subkey 15: f9ba2c3b2aa2
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:58 DEBUG: Subkey 16: f1bcae0263e7
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:88 DEBUG: Initial Permutation applied: d965e6a2e59fdb4c
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:77 DEBUG: Expanded R: 70bcffef6a59
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:79 DEBUG: After XOR:   810051ed09be
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:81 DEBUG: After S-box: 49d440d8
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:98 DEBUG: Round  1 L=e59fdb4c R=d77837a3
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:77 DEBUG: Expanded R: eaebf01afd07
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:79 DEBUG: After XOR:   1351dc21d7a5
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:81 DEBUG: After S-box: d794731e
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:98 DEBUG: Round  2 L=d77837a3 R=8b392afe
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:77 DEBUG: Expanded R: 4569f29557fd
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:79 DEBUG: After XOR:   9f675d2560c8
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:81 DEBUG: After S-box: 26fe4406
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:98 DEBUG: Round  3 L=8b392afe R=933f24df
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:77 DEBUG: Expanded R: ca69fe9096ff
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:79 DEBUG: After XOR:   55cc52022c77
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:81 DEBUG: After S-box: c5422e90
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:98 DEBUG: Round  4 L=933f24df R=99d8ea67
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:77 DEBUG: Expanded R: cf3ef175430f
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:79 DEBUG: After XOR:   90564ca40162
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:81 DEBUG: After S-box: e4c91cbb
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:98 DEBUG: Round  5 L=99d8ea67 R=29bcab86
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:77 DEBUG: Expanded R: 153df9557c0c
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:79 DEBUG: After XOR:   0a302c892e9c
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:81 DEBUG: After S-box: 48a72d5c
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:98 DEBUG: Round  6 L=29bcab86 R=03805bcb
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:77 DEBUG: Expanded R: 807c002f7e56
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:79 DEBUG: After XOR:   b70d9da63158
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:81 DEBUG: After S-box: 15ce13b5
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:98 DEBUG: Round  7 L=03805bcb R=0bddd6f5
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:77 DEBUG: Expanded R: 857efbead7aa
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:79 DEBUG: After XOR:   b8352000129a
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:81 DEBUG: After S-box: bdca2a00
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:98 DEBUG: Round  8 L=0bddd6f5 R=13691819
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:77 DEBUG: Expanded R: 8a6b528f00f2
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:79 DEBUG: After XOR:   153109e71a89
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:81 DEBUG: After S-box: 7096ab3a
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:98 DEBUG: Round  9 L=13691819 R=14bf6177
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:77 DEBUG: Expanded R: 8a95feb02bae
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:79 DEBUG: After XOR:   240607545706
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:81 DEBUG: After S-box: efb5f464
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:98 DEBUG: Round 10 L=14bf6177 R=f6f5cfa5
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:77 DEBUG: Expanded R: fad7abe5fd0b
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:79 DEBUG: After XOR:   158491ad4c25
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:81 DEBUG: After S-box: 7cd4e3ae
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:98 DEBUG: Round 11 L=f6f5cfa5 R=1990d6c4
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:77 DEBUG: Expanded R: 0f3ca16ad608
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:79 DEBUG: After XOR:   a1fad6188340
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:81 DEBUG: After S-box: d595191d
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:98 DEBUG: Round 12 L=1990d6c4 R=48753697
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:77 DEBUG: Expanded R: a503aa9ad4ae
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:79 DEBUG: After XOR:   43b2dcc577a7
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:81 DEBUG: After S-box: 35446e17
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:98 DEBUG: Round 13 L=48753697 R=0bb78c7e
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:77 DEBUG: Expanded R: 057dafc583fc
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:79 DEBUG: After XOR:   71a39907842f
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:81 DEBUG: After S-box: 0051e13d
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:98 DEBUG: Round 14 L=0bb78c7e R=c7701a37
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:77 DEBUG: Expanded R: e0eba00f41af
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:79 DEBUG: After XOR:   104d76b9c82a
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:81 DEBUG: After S-box: d8ee851c
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:98 DEBUG: Round 15 L=c7701a37 R=007e3d10
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:77 DEBUG: Expanded R: 0003fc1fa8a0
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:79 DEBUG: After XOR:   80bd126bc1b3
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:81 DEBUG: After S-box: 42220bec
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:98 DEBUG: Round 16 L=007e3d10 R=9f00be12
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:103 DEBUG: Final Permutation applied: 48656c6c6f2c2044
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:88 DEBUG: Initial Permutation applied: bf1b01cf4f38b0d2
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:77 DEBUG: Expanded R: 25e9f15a16a4
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:79 DEBUG: After XOR:   d4555f587543
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:81 DEBUG: After S-box: 3459f25f
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:98 DEBUG: Round  1 L=4f38b0d2 R=102c0b3d
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:77 DEBUG: Expanded R: 8a01580569fa
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:79 DEBUG: After XOR:   73bb743e4358
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:81 DEBUG: After S-box: 05831f15
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:98 DEBUG: Round  2 L=102c0b3d R=fd58d9ea
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:77 DEBUG: Expanded R: 7faaf16f3f55
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:79 DEBUG: After XOR:   a5a45edf0860
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:81 DEBUG: After S-box: 402f9767
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:98 DEBUG: Round  3 L=fd58d9ea R=b15eb751
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:77 DEBUG: Expanded R: da2afd5aeaa3
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:79 DEBUG: After XOR:   458f51c8502b
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:81 DEBUG: After S-box: ac24944a
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:98 DEBUG: Round  4 L=b15eb751 R=d4c2cbf6
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:77 DEBUG: Expanded R: 6a9605657fad
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:79 DEBUG: After XOR:   35feb8b43dc0
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:81 DEBUG: After S-box: d5a52ffd
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:98 DEBUG: Round  5 L=d4c2cbf6 R=2bee4aee
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:77 DEBUG: Expanded R: 157f5c25575c
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:79 DEBUG: After XOR:   0a7289f905cc
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:81 DEBUG: After S-box: 4136e0cb
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:98 DEBUG: Round  6 L=2bee4aee R=d9941373
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:77 DEBUG: Expanded R: ef3ca80a6ba7
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:79 DEBUG: After XOR:   d84d358324a9
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:81 DEBUG: After S-box: 782540c4
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:98 DEBUG: Round  7 L=d9941373 R=abf2d8c9
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:77 DEBUG: Expanded R: d57fa56f1653
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:79 DEBUG: After XOR:   e8347e85d363
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:81 DEBUG: After S-box: ad24b311
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:98 DEBUG: Round  8 L=abf2d8c9 R=fa3c69e7
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:77 DEBUG: Expanded R: ff41f8353f0f
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:79 DEBUG: After XOR:   601ba35d2574
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:81 DEBUG: After S-box: 530fad5a
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:98 DEBUG: Round  9 L=fa3c69e7 R=70a02803
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:77 DEBUG: Expanded R: ba1500150006
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:79 DEBUG: After XOR:   1486f9f17cae
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:81 DEBUG: After S-box: 76bc0ef2
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:98 DEBUG: Round 10 L=70a02803 R=ac0efeb8
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:77 DEBUG: Expanded R: 55805d7fd5f1
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:79 DEBUG: After XOR:   bad3673764df
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:81 DEBUG: After S-box: b466da32
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:98 DEBUG: Round 11 L=ac0efeb8 R=43473e15
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:77 DEBUG: Expanded R: a06a0e9fc0aa
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:79 DEBUG: After XOR:   0eac79ed95e2
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:81 DEBUG: After S-box: f44c40cb
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:98 DEBUG: Round 12 L=43473e15 R=a49964eb
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:77 DEBUG: Expanded R: d094f2b09757
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:79 DEBUG: After XOR:   362584ef345e
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:81 DEBUG: After S-box: de7e4ee7
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:98 DEBUG: Round 13 L=a49964eb R=17b8a26a
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:77 DEBUG: Expanded R: 0afdf1504354
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:79 DEBUG: After XOR:   7e23c7924487
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:81 DEBUG: After S-box: 8ea51fc8
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:98 DEBUG: Round 14 L=17b8a26a R=5c2155f6
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:77 DEBUG: Expanded R: 2f8102aabfac
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:79 DEBUG: After XOR:   df27d41c3629
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:81 DEBUG: After S-box: e818cf54
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:98 DEBUG: Round 15 L=5c2155f6 R=00040002
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:77 DEBUG: Expanded R: 000008000004
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:79 DEBUG: After XOR:   80bee6746917
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:81 DEBUG: After S-box: 42508fbb
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:98 DEBUG: Round 16 L=00040002 R=0302f9ff
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:103 DEBUG: Final Permutation applied: 4553210505050505
+2025-04-27 20:55:36 cs7349_001c_1252_final.scripts.des_cipher:146 INFO: Decrypted: Hello, DES!
+</div></code></pre>
+<hr>
+<h2 id="problem-2-rsa-crypto-system">Problem 2. RSA Crypto System</h2>
+<p><strong>Assignment</strong></p>
+<ol>
+<li>Write a prime number check program to check any input
+number to be whether a prime number.</li>
+<li>Find the 10th and the 19th prime numbers p and q
+between 1000 and 10000 to build an RSA crypto system. Write down the public key PU = {e, n}
+and the private key PR = {d, p, q}.</li>
+<li>Program to implement the encipher and decipher. Test your
+RSA crypto system by encrypting and decrypting a message “rsa” (Map each letter to 0 - 25).</li>
+<li>If an adversary obtains the public key PU = {e, n}, demonstrate how the adversary uses the
+exhaustive search to get the private key d and show the time cost of the search.</li>
+</ol>
+<h3 id="11-overview">1.1 Overview</h3>
+<ol>
+<li>
+<p><strong>Prime number Check</strong>
+The primality check function works by first checking the edge cases of divisibility by 2 and 3, then iterates through potential factors of the form 6k ± 1 up to √n.</p>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">is_prime</span><span class="hljs-params">(n: int)</span> -&gt; bool:</span>
+    <span class="hljs-keyword">if</span> n &lt;= <span class="hljs-number">1</span>:
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span>
+    <span class="hljs-keyword">if</span> n &lt;= <span class="hljs-number">3</span>:
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span>
+    <span class="hljs-keyword">if</span> n % <span class="hljs-number">2</span> == <span class="hljs-number">0</span> <span class="hljs-keyword">or</span> n % <span class="hljs-number">3</span> == <span class="hljs-number">0</span>:
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span>
+    i = <span class="hljs-number">5</span>
+    <span class="hljs-keyword">while</span> i * i &lt;= n:
+        <span class="hljs-keyword">if</span> n % i == <span class="hljs-number">0</span> <span class="hljs-keyword">or</span> n % (i + <span class="hljs-number">2</span>) == <span class="hljs-number">0</span>:
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span>
+        i += <span class="hljs-number">6</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span>
+</div></code></pre>
+</li>
+<li>
+<p><strong>Key Generation</strong>
+The following logic finds the 10th and 19th prime numbers p and q between 1000 and 10000, the public key PU = {e, n}, and private key PR = {d, p, q}. The inclusive range was iteratived over with the is_prime function to yield the 10th and 19th prime numbers. The modulus was then computed using <code>n = p × q</code> and Euler's totient function using <code>φ(n) = (p − 1)(q − 1)</code>. The common public exponent e = 65,537 was used after confirming <code>gcd(e, φ(n)) = 1</code>. The private exponent <code>d</code> was determined using the extended euclidean algorithm to satisfy the congruence <code>e · d ≡ 1 (mod φ(n))</code>.</p>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">find_primes_in_range</span><span class="hljs-params">(start: int, end: int)</span> -&gt; List[int]:</span>
+    logger.debug(<span class="hljs-string">f"Finding primes between <span class="hljs-subst">{start}</span> and <span class="hljs-subst">{end}</span>"</span>)
+    primes = [n <span class="hljs-keyword">for</span> n <span class="hljs-keyword">in</span> range(start, end + <span class="hljs-number">1</span>) <span class="hljs-keyword">if</span> is_prime(n)]
+    logger.debug(<span class="hljs-string">f"Found <span class="hljs-subst">{len(primes)}</span> primes in range"</span>)
+    <span class="hljs-keyword">return</span> primes
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">ext_euclidean</span><span class="hljs-params">(a: int, b: int)</span> -&gt; Tuple[int, int, int]:</span>
+<span class="hljs-keyword">if</span> a == <span class="hljs-number">0</span>:
+    <span class="hljs-keyword">return</span> (b, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>)
+g, y, x = ext_euclidean(b % a, a)
+<span class="hljs-keyword">return</span> (g, x - (b // a) * y, y)
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">mod_inv</span><span class="hljs-params">(a: int, m: int)</span> -&gt; int:</span>
+    logger.debug(<span class="hljs-string">f"Computing modular inverse of <span class="hljs-subst">{a}</span> mod <span class="hljs-subst">{m}</span>"</span>)
+    g, x, _ = ext_euclidean(a, m)
+    <span class="hljs-keyword">if</span> g != <span class="hljs-number">1</span>:
+        logger.error(<span class="hljs-string">f"Modular inverse does not exist for <span class="hljs-subst">{a}</span> mod <span class="hljs-subst">{m}</span>"</span>)
+        <span class="hljs-keyword">raise</span> ValueError(<span class="hljs-string">f"Modular inverse does not exist for <span class="hljs-subst">{a}</span> mod <span class="hljs-subst">{m}</span>"</span>)
+    inverse = x % m
+    logger.debug(<span class="hljs-string">f"Modular inverse is <span class="hljs-subst">{inverse}</span>"</span>)
+    <span class="hljs-keyword">return</span> inverse
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">generate_rsa_keys</span><span class="hljs-params">()</span> -&gt; Tuple[int, int, int, int, int]:</span>
+    primes = find_primes_in_range(<span class="hljs-number">1000</span>, <span class="hljs-number">10000</span>)
+    p = primes[<span class="hljs-number">9</span>]   <span class="hljs-comment"># 10th prime</span>
+    q = primes[<span class="hljs-number">18</span>]  <span class="hljs-comment"># 19th prime</span>
+    logger.debug(<span class="hljs-string">f"Selected primes p=<span class="hljs-subst">{p}</span>, q=<span class="hljs-subst">{q}</span>"</span>)
+    n = p * q
+    phi = (p - <span class="hljs-number">1</span>) * (q - <span class="hljs-number">1</span>)
+    logger.debug(<span class="hljs-string">f"Calculated n=<span class="hljs-subst">{n}</span> and phi=<span class="hljs-subst">{phi}</span>"</span>)
+
+    e = <span class="hljs-number">65537</span>
+    <span class="hljs-keyword">if</span> math.gcd(e, phi) != <span class="hljs-number">1</span>:
+        logger.warning(<span class="hljs-string">"65537 not coprime to phi; finding alternative e"</span>)
+        e = <span class="hljs-number">3</span>
+        <span class="hljs-keyword">while</span> math.gcd(e, phi) != <span class="hljs-number">1</span>:
+            e += <span class="hljs-number">2</span>
+    logger.debug(<span class="hljs-string">f"Using public exponent e=<span class="hljs-subst">{e}</span>"</span>)
+
+    d = mod_inv(e, phi)
+    logger.debug(<span class="hljs-string">f"Computed private exponent d=<span class="hljs-subst">{d}</span>"</span>)
+    <span class="hljs-keyword">return</span> p, q, e, n, d
+</div></code></pre>
+</li>
+<li>
+<p><strong>Encryption and Decryption</strong>
+The encipher and decipher of the plaintext <code>rsa</code> was implemented by mapping the lowercase letters a-z to integers 0-25, performing a modular exponention <code>c ≡ mᵉ mod n</code> for each integer m. The decypher process computed <code>m ≡ cᵈ mod n</code> to recover the integer representation of the plaintext.</p>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">str_to_nums</span><span class="hljs-params">(s: str)</span> -&gt; list:</span>
+    <span class="hljs-keyword">return</span> [string.ascii_lowercase.index(ch) <span class="hljs-keyword">for</span> ch <span class="hljs-keyword">in</span> s]
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">nums_to_str</span><span class="hljs-params">(nums: list)</span> -&gt; str:</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-string">''</span>.join(string.ascii_lowercase[n] <span class="hljs-keyword">for</span> n <span class="hljs-keyword">in</span> nums)
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">encrypt</span><span class="hljs-params">(m: int, e: int, n: int)</span> -&gt; int:</span>
+    logger.debug(<span class="hljs-string">f"Encrypting message m=<span class="hljs-subst">{m}</span> with e=<span class="hljs-subst">{e}</span>, n=<span class="hljs-subst">{n}</span>"</span>)
+    c = pow(m, e, n)
+    logger.debug(<span class="hljs-string">f"Encrypted ciphertext c=<span class="hljs-subst">{c}</span>"</span>)
+    <span class="hljs-keyword">return</span> c
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">decrypt</span><span class="hljs-params">(c: int, d: int, n: int)</span> -&gt; int:</span>
+    logger.debug(<span class="hljs-string">f"Decrypting ciphertext c=<span class="hljs-subst">{c}</span> with d=<span class="hljs-subst">{d}</span>, n=<span class="hljs-subst">{n}</span>"</span>)
+    m = pow(c, d, n)
+    logger.debug(<span class="hljs-string">f"Decrypted message m=<span class="hljs-subst">{m}</span>"</span>)
+    <span class="hljs-keyword">return</span> m
+</div></code></pre>
+</li>
+<li>
+<p><strong>Cryptanalysis by Brute‑Force</strong>
+A brute-force key recovery attack was used to recover the prime numbers (feasible only when small primes are used). Initial factorization of n was performed by trial division up to <code>√n</code> to recoer p and q. Euler's totient function was computed using <code>φ(n) = (p − 1)(q − 1)</code>, and the private exponent <code>d</code> was recovered by brute force searching for an integer that satisifed the moduluar inverse condition <code>e · d ≡ 1 (mod φ(n))</code>.</p>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">brute_force_private_key</span><span class="hljs-params">(e: int, n: int)</span> -&gt; Tuple[int, int, int, float]:</span>
+    start = time.perf_counter()
+    p = <span class="hljs-literal">None</span>
+    <span class="hljs-keyword">for</span> candidate <span class="hljs-keyword">in</span> range(<span class="hljs-number">2</span>, int(math.isqrt(n)) + <span class="hljs-number">1</span>):
+        <span class="hljs-keyword">if</span> n % candidate == <span class="hljs-number">0</span> <span class="hljs-keyword">and</span> is_prime(candidate):
+            q = n // candidate
+            <span class="hljs-keyword">if</span> is_prime(q):
+                p = candidate
+                <span class="hljs-keyword">break</span>
+    <span class="hljs-keyword">if</span> p <span class="hljs-keyword">is</span> <span class="hljs-literal">None</span>:
+        logger.error(<span class="hljs-string">"Failed to factor n"</span>)
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">None</span>, <span class="hljs-literal">None</span>, <span class="hljs-literal">None</span>, <span class="hljs-number">0.0</span>
+    phi = (p - <span class="hljs-number">1</span>) * (q - <span class="hljs-number">1</span>)
+    d = <span class="hljs-literal">None</span>
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">2</span>, phi):
+        <span class="hljs-keyword">if</span> (e * i) % phi == <span class="hljs-number">1</span>:
+            d = i
+            <span class="hljs-keyword">break</span>
+    elapsed = time.perf_counter() - start
+    logger.debug(<span class="hljs-string">f"Brute-forced p=<span class="hljs-subst">{p}</span>, q=<span class="hljs-subst">{q}</span>, d=<span class="hljs-subst">{d}</span> in <span class="hljs-subst">{elapsed:<span class="hljs-number">.4</span>f}</span> seconds"</span>)
+    <span class="hljs-keyword">return</span> p, q, d, elapsed
+</div></code></pre>
+</li>
+</ol>
+<h3 id="13-code-example">1.3 Code Example</h3>
+<p>The following entry point script computes the RSA keys from a pre-defined integer, encrypts the message, decrypts the message, and then brute-forces the private key. The log output details the internal logic being performed by the script.</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:
+    setup_logging()
+
+    <span class="hljs-comment"># 1) Primality test on a pre-defined integer</span>
+    num = <span class="hljs-number">7919</span>
+    result = is_prime(num)
+    logger.info(<span class="hljs-string">f"<span class="hljs-subst">{num}</span> is <span class="hljs-subst">{<span class="hljs-string">'a prime'</span> <span class="hljs-keyword">if</span> result <span class="hljs-keyword">else</span> <span class="hljs-string">'not a prime'</span>}</span>.\n"</span>)
+
+    <span class="hljs-comment"># 2) Generate RSA keys</span>
+    p, q, e, n, d = generate_rsa_keys()
+    logger.info(<span class="hljs-string">"Generated RSA key pair:"</span>)
+    logger.info(<span class="hljs-string">f"PU = {{e: <span class="hljs-subst">{e}</span>, n: <span class="hljs-subst">{n}</span>}}"</span>)
+    logger.info(<span class="hljs-string">f"PR = {{d: <span class="hljs-subst">{d}</span>, p: <span class="hljs-subst">{p}</span>, q: <span class="hljs-subst">{q}</span>}}\n"</span>)
+
+    <span class="hljs-comment"># 3) Encrypt/decrypt a fixed message "rsa"</span>
+    message = <span class="hljs-string">"rsa"</span>
+    logger.info(<span class="hljs-string">f"Original message: \"<span class="hljs-subst">{message}</span>\""</span>)
+    message_int = str_to_nums(message)
+    logger.info(<span class="hljs-string">f"Mapped to integers: <span class="hljs-subst">{message_int}</span>"</span>)
+
+    ciphertexts = [encrypt(m_i, e, n) <span class="hljs-keyword">for</span> m_i <span class="hljs-keyword">in</span> message_int]
+    logger.info(<span class="hljs-string">f"Encrypted ciphertexts: <span class="hljs-subst">{ciphertexts}</span>"</span>)
+
+    decrypted_ints = [decrypt(c_i, d, n) <span class="hljs-keyword">for</span> c_i <span class="hljs-keyword">in</span> ciphertexts]
+    logger.info(<span class="hljs-string">f"Decrypted integers: <span class="hljs-subst">{decrypted_ints}</span>"</span>)
+
+    decrypted_msg = nums_to_str(decrypted_ints)
+    logger.info(<span class="hljs-string">f"Recovered message: \"<span class="hljs-subst">{decrypted_msg}</span>\"\n"</span>)
+
+    <span class="hljs-comment"># 4) Brute-force the private key and measure time</span>
+    p_b, q_b, d_b, elapsed = brute_force_private_key(e, n)
+    <span class="hljs-keyword">if</span> p_b <span class="hljs-keyword">is</span> <span class="hljs-literal">None</span>:
+        logger.info(<span class="hljs-string">"4) Brute-force failed to factor n.\n"</span>)
+    <span class="hljs-keyword">else</span>:
+        logger.info(<span class="hljs-string">"4) Adversary brute-forces the private key:"</span>)
+        logger.info(<span class="hljs-string">f"Found p = <span class="hljs-subst">{p_b}</span>, q = <span class="hljs-subst">{q_b}</span>, d = <span class="hljs-subst">{d_b}</span>"</span>)
+        logger.info(<span class="hljs-string">f"Time taken: <span class="hljs-subst">{elapsed:<span class="hljs-number">.4</span>f}</span> seconds\n"</span>)
+</div></code></pre>
+<h3 id="log-output">Log Output</h3>
+<pre class="hljs"><code><div>2025-04-27 21:14:44 cs7349_001c_1252_final.scripts.rsa_cipher:120 INFO: 7919 is a prime.
+
+2025-04-27 21:14:44 cs7349_001c_1252_final.scripts.rsa_cipher:31 DEBUG: Finding primes between 1000 and 10000
+2025-04-27 21:14:44 cs7349_001c_1252_final.scripts.rsa_cipher:33 DEBUG: Found 1061 primes <span class="hljs-keyword">in</span> range
+2025-04-27 21:14:44 cs7349_001c_1252_final.scripts.rsa_cipher:59 DEBUG: Selected primes p=1061, q=1117
+2025-04-27 21:14:44 cs7349_001c_1252_final.scripts.rsa_cipher:62 DEBUG: Calculated n=1185137 and phi=1182960
+2025-04-27 21:14:44 cs7349_001c_1252_final.scripts.rsa_cipher:70 DEBUG: Using public exponent e=65537
+2025-04-27 21:14:44 cs7349_001c_1252_final.scripts.rsa_cipher:45 DEBUG: Computing modular inverse of 65537 mod 1182960
+2025-04-27 21:14:44 cs7349_001c_1252_final.scripts.rsa_cipher:51 DEBUG: Modular inverse is 200033
+2025-04-27 21:14:44 cs7349_001c_1252_final.scripts.rsa_cipher:73 DEBUG: Computed private exponent d=200033
+2025-04-27 21:14:44 cs7349_001c_1252_final.scripts.rsa_cipher:124 INFO: Generated RSA key pair:
+2025-04-27 21:14:44 cs7349_001c_1252_final.scripts.rsa_cipher:125 INFO: PU = {e: 65537, n: 1185137}
+2025-04-27 21:14:44 cs7349_001c_1252_final.scripts.rsa_cipher:126 INFO: PR = {d: 200033, p: 1061, q: 1117}
+
+2025-04-27 21:14:44 cs7349_001c_1252_final.scripts.rsa_cipher:130 INFO: Original message: <span class="hljs-string">"rsa"</span>
+2025-04-27 21:14:44 cs7349_001c_1252_final.scripts.rsa_cipher:132 INFO: Mapped to integers: [17, 18, 0]
+2025-04-27 21:14:44 cs7349_001c_1252_final.scripts.rsa_cipher:101 DEBUG: Encrypting message m=17 with e=65537, n=1185137        
+2025-04-27 21:14:44 cs7349_001c_1252_final.scripts.rsa_cipher:103 DEBUG: Encrypted ciphertext c=665120
+2025-04-27 21:14:44 cs7349_001c_1252_final.scripts.rsa_cipher:101 DEBUG: Encrypting message m=18 with e=65537, n=1185137        
+2025-04-27 21:14:44 cs7349_001c_1252_final.scripts.rsa_cipher:103 DEBUG: Encrypted ciphertext c=1081927
+2025-04-27 21:14:44 cs7349_001c_1252_final.scripts.rsa_cipher:101 DEBUG: Encrypting message m=0 with e=65537, n=1185137
+2025-04-27 21:14:44 cs7349_001c_1252_final.scripts.rsa_cipher:103 DEBUG: Encrypted ciphertext c=0
+2025-04-27 21:14:44 cs7349_001c_1252_final.scripts.rsa_cipher:135 INFO: Encrypted ciphertexts: [665120, 1081927, 0]
+2025-04-27 21:14:44 cs7349_001c_1252_final.scripts.rsa_cipher:108 DEBUG: Decrypting ciphertext c=665120 with d=200033, n=1185137
+2025-04-27 21:14:44 cs7349_001c_1252_final.scripts.rsa_cipher:110 DEBUG: Decrypted message m=17
+2025-04-27 21:14:44 cs7349_001c_1252_final.scripts.rsa_cipher:108 DEBUG: Decrypting ciphertext c=1081927 with d=200033, n=1185137
+2025-04-27 21:14:44 cs7349_001c_1252_final.scripts.rsa_cipher:110 DEBUG: Decrypted message m=18
+2025-04-27 21:14:44 cs7349_001c_1252_final.scripts.rsa_cipher:108 DEBUG: Decrypting ciphertext c=0 with d=200033, n=1185137
+2025-04-27 21:14:44 cs7349_001c_1252_final.scripts.rsa_cipher:110 DEBUG: Decrypted message m=0
+2025-04-27 21:14:44 cs7349_001c_1252_final.scripts.rsa_cipher:138 INFO: Decrypted integers: [17, 18, 0]
+2025-04-27 21:14:44 cs7349_001c_1252_final.scripts.rsa_cipher:141 INFO: Recovered message: <span class="hljs-string">"rsa"</span>
+
+2025-04-27 21:14:44 cs7349_001c_1252_final.scripts.rsa_cipher:96 DEBUG: Brute-forced p=1061, q=1117, d=200033 <span class="hljs-keyword">in</span> 0.0187 seconds
+2025-04-27 21:14:44 cs7349_001c_1252_final.scripts.rsa_cipher:148 INFO: 4) Adversary brute-forces the private key:
+2025-04-27 21:14:44 cs7349_001c_1252_final.scripts.rsa_cipher:149 INFO: Found p = 1061, q = 1117, d = 200033
+2025-04-27 21:14:44 cs7349_001c_1252_final.scripts.rsa_cipher:150 INFO: Time taken: 0.0187 seconds
+</div></code></pre>
+
+</body>
+</html>

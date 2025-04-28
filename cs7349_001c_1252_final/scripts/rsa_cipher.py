@@ -1,4 +1,4 @@
-# cs7349_001c_1252_final/scripts/rsa_cipher.py
+# cs7349_001c_1252_final.scripts.rsa_cipher.py
 # Garrett Gruss 4/27/2025
 # Usage: python -m cs7349_001c_1252_final.scripts.rsa_cipher
 
@@ -6,13 +6,26 @@
 import math
 import time
 from typing import Tuple, List
-from cs7349_001c_1252_final.scripts.utils import str_to_nums, nums_to_str, is_prime
+from cs7349_001c_1252_final.scripts.utils import str_to_nums, nums_to_str
 
 # Logger Configuration
 import logging
 from cs7349_001c_1252_final.config.logging_config import setup_logging
 logger = logging.getLogger(getattr(__spec__, "name", __name__))
 
+def is_prime(n: int) -> bool:
+    if n <= 1:
+        return False
+    if n <= 3:
+        return True
+    if n % 2 == 0 or n % 3 == 0:
+        return False
+    i = 5
+    while i * i <= n:
+        if n % i == 0 or n % (i + 2) == 0:
+            return False
+        i += 6
+    return True
 
 def find_primes_in_range(start: int, end: int) -> List[int]:
     logger.debug(f"Finding primes between {start} and {end}")
